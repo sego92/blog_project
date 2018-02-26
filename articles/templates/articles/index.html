@@ -1,18 +1,26 @@
-<h1>Blog ({{articles | length}} articles) </h1>
+{% extends 'layouts/base.html' %}
 
-{% for article in articles %}
-    <!--affiche les articles avec leurs id, titre et contenant.-->
-    <article>
-        <h2><a href="/articles/articles/{{article.id}} ">#{{article.id}} - {{article.title}}</a></h2>
-        <p>{{article.body|truncatewords:3}}</p>
+{% block title %}Articles{% endblock %}
 
-        <p><a href="/articles/articles/{{article.id}}">Lire la suite</a></p>
-    </article>
-    <!--trace un trai entre les articles-->
-    {% if not forloop.last %}
-        <hr>
-    {% endif %}
-    <!--affiche le message si aucun article c.à.d si list posts vide.-->
-    {% empty %}
-        <p>Sorry, no articles available.</p>
-{% endfor %}
+{% block content %}
+    <h1>Blog ({{articles | length}} articles) </h1>
+
+    {% for article in articles %}
+        <!--affiche les articles avec leurs id, titre et contenant.-->
+        <article>
+            <h2><a href="{% url 'articles:detail' article.id%} ">#{{article.id}} - {{article.title}}</a></h2>
+            <p>{{article.body|truncatewords:3}}</p>
+
+            <p><a href="{% url 'articles:detail' article.id%}">Lire la suite</a></p>
+        </article>
+        <!--trace un trai entre les articles-->
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+        <!--affiche le message si aucun article c.à.d si list posts vide.-->
+        {% empty %}
+            <p>Sorry, no articles available.</p>
+    {% endfor %}
+    <hr>
+    <p><a href="{% url 'home' %}">Retour page d'acceuil</a></p>
+{% endblock %}
