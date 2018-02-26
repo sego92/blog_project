@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %}Articles{% endblock %}
+{% block title %}Blog{% endblock %}
 
 {% block content %}
     <h1>Blog ({{articles | length}} articles) </h1>
@@ -21,6 +21,4 @@
         {% empty %}
             <p>Sorry, no articles available.</p>
     {% endfor %}
-    <hr>
-    <p><a href="{% url 'home' %}">Retour page d'acceuil</a></p>
 {% endblock %}
