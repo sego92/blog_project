@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^$', views.home),
     url(r'^about/$', views.about),
     url(r'^contact/$', views.contact),
-    url(r'^articles/', include('articles.urls'))
+    url(r'^articles/', include('articles.urls')),
 ]

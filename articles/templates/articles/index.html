@@ -1,1 +1,13 @@
 <h1>Blog</h1>
+
+{% for post in posts %}
+    <article>
+        <h2>#{{post.id}} - {{post.title}}</h2>
+        <p>{{post.body}}</p>
+    </article>
+    {% if not forloop.last %}
+        <hr>
+    {% endif %}
+    {% empty %}
+        <p>Sorry, no posts available.</p>
+{% endfor %}
