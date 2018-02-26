@@ -1,12 +1,12 @@
-<h1>Blog ({{posts | length}} posts) </h1>
+<h1>Blog ({{articles | length}} articles) </h1>
 
-{% for post in posts %}
+{% for article in articles %}
     <!--affiche les articles avec leurs id, titre et contenant.-->
     <article>
-        <h2><a href="/articles/posts/{{post.id}} ">#{{post.id}} - {{post.title}}</a></h2>
-        <p>{{post.body|truncatewords:3}}</p>
+        <h2><a href="/articles/articles/{{article.id}} ">#{{article.id}} - {{article.title}}</a></h2>
+        <p>{{article.body|truncatewords:3}}</p>
 
-        <p><a href="/articles/posts/{{post.id}}">Lire la suite</a></p>
+        <p><a href="/articles/articles/{{article.id}}">Lire la suite</a></p>
     </article>
     <!--trace un trai entre les articles-->
     {% if not forloop.last %}
@@ -14,5 +14,5 @@
     {% endif %}
     <!--affiche le message si aucun article c.à.d si list posts vide.-->
     {% empty %}
-        <p>Sorry, no posts available.</p>
+        <p>Sorry, no articles available.</p>
 {% endfor %}
