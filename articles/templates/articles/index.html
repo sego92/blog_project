@@ -1,24 +1,18 @@
-{% extends 'layouts/base.html' %}
+<html>
+    <head>
+        <title>Blog</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Blog</a></h1>
+        </div>
 
-{% block title %}Blog{% endblock %}
-
-{% block content %}
-    <h1>Blog ({{articles | length}} articles) </h1>
-
-    {% for article in articles %}
-        <!--affiche les articles avec leurs id, titre et contenant.-->
-        <article>
-            <h2><a href="{% url 'articles:detail' article.id%} ">#{{article.id}} - {{article.title}}</a></h2>
-            <p>{{article.body|truncatewords:3}}</p>
-
-            <p><a href="{% url 'articles:detail' article.id%}">Lire la suite</a></p>
-        </article>
-        <!--trace un trai entre les articles-->
-        {% if not forloop.last %}
-            <hr>
-        {% endif %}
-        <!--affiche le message si aucun article c.à.d si list posts vide.-->
-        {% empty %}
-            <p>Sorry, no articles available.</p>
-    {% endfor %}
-{% endblock %}
+        {% for post in posts %}
+            <div>
+                <p>publié: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+    </body>
+</html>
