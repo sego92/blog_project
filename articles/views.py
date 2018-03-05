@@ -8,13 +8,13 @@ def index(request):
     return render(request, 'articles/index.html', {'posts':posts})
 
 def detail(request):
-    pass
+    return render(request, 'articles/detail.html', {'posts':posts})
 
 def delete(request):
-    pass
+    return render(request, 'articles/delete.html', {'posts':posts})
 
 def create(request):
-    pass
+    return render(request, 'articles/create_modify.html', {'posts':posts})
 
 def modify(request):
-    pass
+    return render(request, 'articles/create_modify.html', {'posts':posts})
