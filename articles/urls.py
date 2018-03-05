@@ -6,4 +6,5 @@ app_name='articles'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^detail/(?P<pk>\d+)/$', views.detail, name='detail'),
 ]

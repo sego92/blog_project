@@ -7,8 +7,9 @@ def index(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'articles/index.html', {'posts':posts})
 
-def detail(request):
-    return render(request, 'articles/detail.html', {'posts':posts})
+def detail(request, pk):
+    post = Post.objects.get(pk=pk)
+    return render(request, 'articles/detail.html', {'post':post})
 
 def delete(request):
     return render(request, 'articles/delete.html', {'posts':posts})
